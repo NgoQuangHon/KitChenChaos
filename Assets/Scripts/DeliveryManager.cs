@@ -20,8 +20,8 @@ public class DeliveryManager : MonoBehaviour {
 
     private List<RecipeSO> waitingRecipeSOList;
     private float spawnRecipeTimer;
-    private float spawnRecipeTimerMax = 4f;
-    private int waitingRecipesMax = 4;
+    [SerializeField] private float spawnRecipeTimerMax = 30f;
+    [SerializeField] private int waitingRecipesMax = 5;
     private int successfulRecipesAmount;
 
 

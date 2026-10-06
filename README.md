@@ -22,7 +22,7 @@ Game bếp kiểu kitchen simulation được xây dựng trên Unity. Người 
 
 ## Công nghệ sử dụng
 
-- Unity 6000.1.4f1
+- Unity 6000.5.7f1
 - C#
 - Unity Input System
 - URP (Universal Render Pipeline)

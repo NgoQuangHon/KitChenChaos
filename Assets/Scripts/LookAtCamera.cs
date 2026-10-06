@@ -15,21 +15,31 @@ public class LookAtCamera : MonoBehaviour {
 
     [SerializeField] private Mode mode;
 
+    private Camera mainCamera;
+
+    private void Awake() {
+        mainCamera = Camera.main;
+    }
 
     private void LateUpdate() {
+        if (mainCamera == null) {
+            mainCamera = Camera.main;
+            if (mainCamera == null) return;
+        }
+
         switch (mode) {
             case Mode.LookAt:
-                transform.LookAt(Camera.main.transform);
+                transform.LookAt(mainCamera.transform);
                 break;
             case Mode.LookAtInverted:
-                Vector3 dirFromCamera = transform.position - Camera.main.transform.position;
+                Vector3 dirFromCamera = transform.position - mainCamera.transform.position;
                 transform.LookAt(transform.position + dirFromCamera);
                 break;
             case Mode.CameraForward:
-                transform.forward = Camera.main.transform.forward;
+                transform.forward = mainCamera.transform.forward;
                 break;
             case Mode.CameraForwardInverted:
-                transform.forward = -Camera.main.transform.forward;
+                transform.forward = -mainCamera.transform.forward;
                 break;
         }
     }
